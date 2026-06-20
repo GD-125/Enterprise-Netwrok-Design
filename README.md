@@ -233,9 +233,9 @@ This project provides hands-on experience with:
 
 ![Firewall ACL](screenshots/Firewall_ACL.png)
 
-### NAT Verification
+### Simulation Mode
 
-![NAT Verification](screenshots/NAT_Verification.png)
+![NAT Verification](screenshots/Simulation_Mode.png)
 
 ---
 
