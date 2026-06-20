@@ -163,7 +163,7 @@ Enterprise-Network-Cisco-Packet-Tracer/
 
 ### Networking Technologies
 
-* Cisco Packet Tracer 9.x
+* Cisco Packet Tracer 9.0.0
 * Cisco IOS CLI
 * Cisco ASA Firewall
 
