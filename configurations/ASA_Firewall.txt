@@ -1,0 +1,77 @@
+Configure ASA Firewall
+
+enable
+configure terminal
+hostname ASA_FIREWALL
+
+Outside Interface
+
+interface GigabitEthernet1/1
+nameif outside
+security-level 0
+ip address 100.100.100.2 255.255.255.252
+no shutdown
+exit
+
+Inside Interface
+
+interface GigabitEthernet1/2
+nameif inside
+security-level 100
+ip address 172.16.1.1 255.255.255.252
+no shutdown
+exit
+
+Default Route
+
+route outside 0.0.0.0 0.0.0.0 100.100.100.1
+Save
+write memory
+
+The below command tells the firewall that all internal networks are reachable via the Layer 3 switch.
+
+enable
+configure terminal
+route inside 192.168.0.0 255.255.0.0 172.16.1.2
+write memory
+
+Configure NAT on ASA Firewall
+Without NAT, internal PCs cannot access the ISP network.
+
+enable
+configure terminal
+
+Define the inside network.
+
+object network INTERNAL_NETWORK
+subnet 192.168.0.0 255.255.0.0
+
+Enable PAT (Port Address Translation).
+
+nat (inside,outside) dynamic interface
+write memory
+
+Now all VLANs will use the outside interface IP (100.100.100.2) when communicating with the ISP.
+
+Configure Firewall ACLs
+
+Your external devices are
+EX1
+EX2
+EX3
+Let's assume
+Device	    IP
+EX1	201.1.1.10
+EX2	201.1.1.20
+EX3	201.1.1.30
+Block these addresses.
+
+access-list OUTSIDE-IN extended deny ip host 201.1.1.10 any
+access-list OUTSIDE-IN extended deny ip host 201.1.1.20 any
+access-list OUTSIDE-IN extended deny ip host 201.1.1.30 any
+access-list OUTSIDE-IN extended permit ip any any
+
+Apply ACL
+access-group OUTSIDE-IN in interface outside
+write memory
+

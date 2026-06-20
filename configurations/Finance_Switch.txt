@@ -1,0 +1,35 @@
+Configure the Finance Switch
+
+enable
+configure terminal
+
+hostname FIN_SW
+
+interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 30
+
+interface FastEthernet0/2
+ switchport mode access
+ switchport access vlan 30
+
+interface FastEthernet0/3
+ switchport mode access
+ switchport access vlan 30
+
+end
+write
+
+Layer 2 Switch Finance IP
+Finance Switch
+
+enable
+configure terminal
+hostname FIN_SW
+interface vlan 30
+ip address 192.168.30.2 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.30.1
+end
+write

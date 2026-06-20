@@ -1,0 +1,35 @@
+Configure the Management Switch
+
+enable
+configure terminal
+
+hostname MGMT_SW
+
+interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 10
+
+interface FastEthernet0/2
+ switchport mode access
+ switchport access vlan 10
+
+interface FastEthernet0/3
+ switchport mode access
+ switchport access vlan 10
+
+end
+write
+
+Layer 2 Switch Management IP
+Management Switch
+
+enable
+configure terminal
+hostname MGMT_SW
+interface vlan 10
+ip address 192.168.10.2 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.10.1
+end
+write

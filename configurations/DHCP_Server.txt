@@ -1,0 +1,19 @@
+Configure the DHCP Server
+
+Desktop → IP Configuration
+    
+    IP Address: 192.168.99.10 
+    Subnet Mask: 255.255.255.0 
+    Default Gateway: 192.168.99.1 
+    DNS Server: 8.8.8.8
+
+Services → DHCP → On
+
+Create these pools:
+
+Pool		Default Gateway		    Start IP		 Subnet Mask
+Management	192.168.10.1		192.168.10.100		255.255.255.0 
+HR		192.168.20.1		192.168.20.100		255.255.255.0 
+Finance		192.168.30.1		192.168.30.100		255.255.255.0 
+IT		192.168.40.1		192.168.40.100		255.255.255.0 
+Wireless	192.168.50.1		192.168.50.100		255.255.255.0 

@@ -1,0 +1,9 @@
+Configure the Wireless Router
+
+If connected via a LAN port:
+
+	Disable DHCP. 
+	Set LAN IP to 192.168.50.2/24. 
+	Default Gateway: 192.168.50.1. 
+	SSID: EnterpriseWiFi. 
+	Security: WPA2-PSK. 
